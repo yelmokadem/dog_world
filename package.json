@@ -1,0 +1,20 @@
+{
+  "name": "dog_world",
+  "version": "1.0.0",
+  "description": "the world of dogs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Youssef Elmokadem",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^5.13.16",
+    "node-fetch": "^3.3.1",
+    "nodemon": "^2.0.22",
+    "pug": "^3.0.2",
+    "slugify": "^1.6.6"
+  }
+}
