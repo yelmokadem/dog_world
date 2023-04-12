@@ -1,5 +1,9 @@
 extends base 
 
 block content 
+    a.btn vote 
     h1 #{breed.breed} has #{breed.count} votes, #{breed.breed} is rank #{index} 
+    a.back(href="/") home
+    script(src='/js/vote.js')
+
     

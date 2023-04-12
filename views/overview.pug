@@ -1,9 +1,13 @@
 extends base
 
 block content
-    h1 This is the dogworld overview
+    form
+    select#breeds
+        each item in myArray 
+            option(value=item)= item 
     each breed in breeds
         p #{breed.breed} #{breed.count}
+    script(src='/js/addBreed.js')
             
 
     
