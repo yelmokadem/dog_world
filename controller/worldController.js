@@ -5,24 +5,29 @@ async function asyncCall() {
   let fetch = await import("node-fetch");
 }
 asyncCall();
-
-exports.getBreed = async (req, res) => {
+exports.getRank = catchAsync(async (req, res) => {
   const breed_name = req.params.breed;
-  const breed = await WorldDog.findOne({ breed: breed_name });
   const list = await WorldDog.find({ count: { $gte: 1 } })
     .sort({ count: "desc" })
     .select("breed");
-  console.log(list);
   const searchTerm = breed_name;
-  const index = list.findIndex((obj) => obj.breed === searchTerm);
+  let index = list.findIndex((obj) => obj.breed === searchTerm);
   if (index !== -1) {
-    console.log(`'${searchTerm}' is rank ${index + 1}.`);
+    index = index + 1;
   } else {
     console.log(
       `The object with name '${searchTerm}' was not found in the list.`
     );
   }
+  res.status(200).json({
+    status: "success",
+    data: index,
+  });
+});
 
+exports.getBreed = catchAsync(async (req, res) => {
+  const breed_name = req.params.breed;
+  const breed = await WorldDog.findOne({ breed: breed_name });
   if (!breed) {
     {
       return res
@@ -30,7 +35,6 @@ exports.getBreed = async (req, res) => {
         .json({ message: `${breed_name} doesn't exist in breed list` });
     }
   }
-  //res.render("_header", { breed });
   res.status(200).json({
     status: "success",
     data: {
@@ -38,9 +42,9 @@ exports.getBreed = async (req, res) => {
       count,
     },
   });
-};
+});
 
-exports.incBreed = async (req, res) => {
+exports.incBreed = catchAsync(async (req, res) => {
   const breed_name = req.params.breed;
   const breed = await WorldDog.findOne({ breed: breed_name });
   if (!breed) {
@@ -54,16 +58,37 @@ exports.incBreed = async (req, res) => {
   res.status(200).json({
     status: "success",
   });
-};
+});
 
 exports.addBreed = catchAsync(async (req, res) => {
   const breed_name = req.params.breed;
   const existingObject = await WorldDog.findOne({ breed: breed_name });
-  if (existingObject) return null;
+  if (existingObject) return; //null;
   const newBreed = new WorldDog({
     breed: breed_name,
     count: 0,
   });
   const savedBreed = await newBreed.save();
   res.status(201).json(savedBreed);
+});
+exports.topDog = catchAsync(async (req, res) => {
+  const list = await WorldDog.find({ count: { $gte: 1 } })
+    .sort({ count: "desc" })
+    .select("breed");
+  const topDog = list[0];
+  res.status(200).json({
+    status: "success",
+    data: topDog,
+  });
+});
+
+exports.fiveDog = catchAsync(async (req, res) => {
+  const list = await WorldDog.find({ count: { $gte: 1 } })
+    .sort({ count: "desc" })
+    .select("breed");
+  const fiveDog = list[9];
+  res.status(200).json({
+    status: "success",
+    data: fiveDog,
+  });
 });

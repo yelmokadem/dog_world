@@ -1,6 +1,8 @@
 const breedSelect = document.querySelector("#breeds");
 breedSelect.addEventListener("change", (event) => {
   const selectedBreed = event.target.value;
+
+  //post breed to database
   fetch(`/api/world/${selectedBreed}`, {
     method: "POST",
   })

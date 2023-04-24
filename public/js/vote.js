@@ -1,19 +1,42 @@
 const submitButton = document.getElementById("submitButton");
 const btn = document.querySelector(".btn");
+let myHeading = document.getElementById("head");
+let pic = document.getElementById("pic");
+// const pic = document.querySelector(".image");
 
-btn.addEventListener("click", () => {
-  const pathname = window.location.pathname;
-  const newPathname = pathname.slice(1);
-  fetch(`/api/world/${pathname}`, {
+async function fetchData(req, res) {
+  console.log("trying to fetch");
+  //patch breed
+  let pathname = window.location.pathname;
+  pathname = pathname.slice(1);
+  await fetch(`/api/world/${pathname}`, {
     method: "PATCH",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  });
 
-  window.location.href = newPathname;
-});
+  //get breed
+  const neechy = await fetch(`/api/world/${pathname}`, {
+    method: "GET",
+  });
+  const noochy = await neechy.json();
+  let breed = noochy.data.breed;
+
+  // get index
+  const x = await fetch(`/api/world/rank/${pathname}`, {
+    method: "GET",
+  });
+  const y = await x.json();
+  let index = y.data;
+
+  //get imageURL
+  const response = await fetch(
+    `https://dog.ceo/api/breed/${pathname}/images/random`
+  );
+  const data = await response.json();
+  let imageUrl = data.message;
+
+  //manipulate DOM
+  myHeading.textContent = `${breed.breed} has ${breed.count} votes!`;
+  pic.src = imageUrl;
+}
+
+btn.addEventListener("click", fetchData);

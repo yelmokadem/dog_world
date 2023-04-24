@@ -1,0 +1,5 @@
+extends base 
+
+block content 
+    each breed in dogsOrder
+        p #{breed.breed} is rank #{breed.position} with #{breed.count} votes

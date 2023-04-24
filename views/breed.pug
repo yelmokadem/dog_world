@@ -1,9 +1,38 @@
 extends base 
 
 block content 
-    a.btn vote 
-    h1 #{breed.breed} has #{breed.count} votes, #{breed.breed} is rank #{index} 
-    a.back(href="/") home
+    div.text1 
+        h1#head= `${breed.breed} has ${breed.count} votes!`
+    div.image-container
+        div.image
+            img#pic(src=imageUrl)
+    div.right-container.image
+        div.box 
+            button.btn 
+                <img id='img1' src='/img/vote_off.png' onmouseover="this.src='/img/vote_hover.png';" onmouseout="this.src='/img/vote_off.png';" />
+        div.box 
+            <a href="http://127.0.0.1:8000/leaderboard/2"><img id='img2' src='/img/highscores.png' onmouseover="this.src='/img/highscoresP.png';" onmouseout="this.src='/img/highscores.png';" />
+        div.box 
+            <img id='img3' src='/img/folder_closed.png' onmouseover="this.src='/img/folder_open.png';" onmouseout="this.src='/img/folder_closed.png';" />
+        div.box 
+            <a href="http://127.0.0.1:8000/"><img id='img4' src='/img/dog_house.png' onmouseover="this.src='/img/dog_in_the_house.png';" onmouseout="this.src='/img/dog_house.png';" />
+
+        //- div.btn-container
+        //- button.btn 
+        //-     <img id='img1' src='/img/vote_off.png' onmouseover="this.src='/img/vote_hover.png';" onmouseout="this.src='/img/vote_off.png';" />
+        //- <a href="http://127.0.0.1:8000/leaderboard/2"><img id='img2' src='/img/highscores.png' onmouseover="this.src='/img/highscoresP.png';" onmouseout="this.src='/img/highscores.png';" />
+        //- <img id='img3' src='/img/folder_closed.png' onmouseover="this.src='/img/folder_open.png';" onmouseout="this.src='/img/folder_closed.png';" />
+        //- <a href="http://127.0.0.1:8000/"><img id='img4' src='/img/dog_house.png' onmouseover="this.src='/img/dog_in_the_house.png';" onmouseout="this.src='/img/dog_house.png';" />
+
+
+ 
+
+        //- div.text
+        //-     h1#head= `${breed.breed} has ${breed.count} votes, ${breed.breed} is rank ${index}`
+        //- div.btnContainer
+        //-     button.btn
+        //-         img(src="/img/vote_off.png", alt="Button Text" ) 
+
     script(src='/js/vote.js')
 
     

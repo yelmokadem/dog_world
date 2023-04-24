@@ -1,12 +1,12 @@
 extends base
 
 block content
-    form
-    select#breeds
-        each item in myArray 
-            option(value=item)= item 
-    each breed in breeds
-        p #{breed.breed} #{breed.count}
+    header.header
+        div.dogList
+            form
+            select#breeds.list
+                each item in myArray 
+                    option.options(value=item)= item 
     script(src='/js/addBreed.js')
             
 
