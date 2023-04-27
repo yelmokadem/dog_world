@@ -2,6 +2,5 @@ extends base
 
 block content 
     each breed in dogsOrder
-        p 
-            a(href="/#{breed.breed}", class='no-style') #{breed.position}:  #{breed.breed} (#{breed.count})
+        p #{breed.position}: <a href="/#{breed.breed}"> #{breed.breed} </a>(#{breed.count})
     <a href="/"><img id='img4' src='/img/dog_house.png' onmouseover="this.src='/img/dog_in_the_house.png';" onmouseout="this.src='/img/dog_house.png';" />
