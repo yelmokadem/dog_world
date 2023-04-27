@@ -5,7 +5,7 @@
 }
 body {
   background-color: #bbbbbb;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 /* btn */
 .btn {
@@ -32,34 +32,7 @@ body {
 
   /* right container */
 }
-.image {
-  margin: auto; /* center the object horizontally within the container */
-  /* other styles for the object */
-}
-#img1 {
-  max-width: 100%; /* make the image fit the container width */
-  max-height: 100%; /* make the image fit the container height */
-  display: block; /* remove any default margins and paddings */
-}
-#img2 {
-  max-width: 100%; /* make the image fit the container width */
-  max-height: 100%; /* make the image fit the container height */
-  display: block; /* remove any default margins and paddings */
-  transform: scale(0.6);
-}
-#img3 {
-  max-width: 100%; /* make the image fit the container width */
-  max-height: 100%; /* make the image fit the container height */
-  display: block; /* remove any default margins and paddings */
-  transform: translate(+7px, 0px) scale(0.65);
-}
-#img4 {
-  max-width: 100%; /* make the image fit the container width */
-  max-height: 100%; /* make the image fit the container height */
-  display: block; /* remove any default margins and paddings */
-  transform: translate(+5px, 0px) scale(0.9);
-}
-/* other */
+
 .right-container {
   display: flex;
   flex-direction: column;
@@ -71,11 +44,46 @@ body {
   background-color: #643736; /* just an example color */
   justify-content: center; /* horizontally center the child element */
   align-items: center; /* vertically center the child element */
+  margin: auto;
 }
 
-.box {
-  flex: 1; /* make each box fill the available space equally */
+.right-container img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block; /* remove any default margins and paddings */
 }
+.box button {
+  position: absolute; /* position the button over the image */
+  top: 0; /* align button with top edge of image */
+  left: 0; /* align button with left edge of image */
+  width: 100%; /* match width of image */
+  height: 25vh; /* match height of image */
+  background-color: transparent; /* set background to transparent */
+  border: none; /* remove border */
+  /* pointer-events: none; */
+}
+
+#img1 {
+  transform: scale(0.9);
+}
+#img2 {
+  transform: scale(0.75);
+}
+#img3 {
+  transform: translate(+7px, +5px) scale(0.75);
+}
+#img4 {
+  transform: translate(+5px, 0px) scale(0.9);
+}
+.box {
+  flex: 1;
+  /* flex-grow: 1; */
+  width: 100%;
+  max-height: 25vh; /* Set the maximum height of each item */
+  overflow: auto; /* Enable scrolling for overflowed content */
+}
+/* other */
 
 /* text */
 .text1 {
@@ -85,7 +93,7 @@ body {
   transform: translate(-63%, -50%);
   color: white;
   text-align: center;
-  width: 100%;
+  width: 80vw;
 }
 
 /* overview */
