@@ -2,4 +2,6 @@ extends base
 
 block content 
     each breed in dogsOrder
-        p #{breed.breed} is rank #{breed.position} with #{breed.count} votes
+        p 
+            a(href="/#{breed.breed}", class='no-style') #{breed.position}:  #{breed.breed} (#{breed.count})
+    <a href="/"><img id='img4' src='/img/dog_house.png' onmouseover="this.src='/img/dog_in_the_house.png';" onmouseout="this.src='/img/dog_house.png';" />

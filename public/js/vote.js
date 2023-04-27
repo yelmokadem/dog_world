@@ -2,7 +2,6 @@ const submitButton = document.getElementById("submitButton");
 const btn = document.querySelector(".btn");
 let myHeading = document.getElementById("head");
 let pic = document.getElementById("pic");
-// const pic = document.querySelector(".image");
 
 async function fetchData(req, res) {
   console.log("trying to fetch");
@@ -21,11 +20,11 @@ async function fetchData(req, res) {
   let breed = noochy.data.breed;
 
   // get index
-  const x = await fetch(`/api/world/rank/${pathname}`, {
-    method: "GET",
-  });
-  const y = await x.json();
-  let index = y.data;
+  // const x = await fetch(`/api/world/rank/${pathname}`, {
+  //   method: "GET",
+  // });
+  // const y = await x.json();
+  // let index = y.data;
 
   //get imageURL
   const response = await fetch(

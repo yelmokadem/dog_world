@@ -7,7 +7,10 @@ body {
   background-color: #bbbbbb;
   /* overflow: hidden; */
 }
-
+.no-style {
+  text-decoration: none;
+  color: inherit;
+}
 /* image */
 .image-container {
   display: flex; /* use flexbox layout */
