@@ -7,19 +7,6 @@ body {
   background-color: #bbbbbb;
   /* overflow: hidden; */
 }
-/* btn */
-.btn {
-  background-color: transparent;
-  border: none;
-}
-/* vote page header */
-.votePageHeader {
-  position: absolute;
-  width: 10%;
-  left: 100%;
-  top: 0;
-  /* overflow-x: hidden; */
-}
 
 /* image */
 .image-container {
@@ -29,9 +16,14 @@ body {
   height: 100vh; /* set the container height to the full viewport height */
   width: 80vw;
   background-color: rgb(135, 222, 239);
-
-  /* right container */
 }
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+/* right container */
 
 .right-container {
   display: flex;
